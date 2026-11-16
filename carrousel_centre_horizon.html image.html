@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre Horizon - Destinations d'Exception</title>
+    <!-- Chargement de Tailwind CSS pour une mise en page moderne et responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chargement de la police Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Transition fluide pour le fondu et le léger effet de zoom des diapositives */
+        .slide-item {
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 6s ease-out;
+        }
+        .slide-active {
+            opacity: 1;
+            z-index: 10;
+            transform: scale(1.03);
+        }
+        .slide-inactive {
+            opacity: 0;
+            z-index: 0;
+            transform: scale(1);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 select-none">
+
+    <!-- En-tête de la page -->
+    <header class="w-full max-w-5xl mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+            <span class="text-xs font-semibold tracking-widest uppercase text-sky-400">Exploration & Découverte</span>
+            <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mt-1">Centre Horizon</h1>
+        </div>
+        <p class="text-sm text-slate-400">Découvrez nos quatre expéditions phares à travers le monde</p>
+    </header>
+
+    <!-- Conteneur principal du carrousel -->
+    <main id="carousel-container" 
+          class="relative w-full max-w-5xl aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/80 border border-slate-800 bg-slate-900 group"
+          role="region" 
+          aria-label="Carrousel des destinations Centre Horizon">
+
+        <!-- Piste des diapositives -->
+        <div id="carousel-track" class="relative w-full h-full">
+            
+            <!-- Diapositive 1 : Groenland -->
+            <div class="slide-item slide-active absolute inset-0 w-full h-full" data-index="0">
+                <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1600&q=85" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/1600x900/0f172a/38bdf8?text=Groenland+-+Fjords+Glac%C3%A9s';"
+                     alt="Paysage glacé et fjords du Groenland" 
+                     class="w-full h-full object-cover">
+                <!-- Dégradé sombre pour assurer la lisibilité du texte -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+                <!-- Légende élégante -->
+                <div class="absolute bottom-14 sm:bottom-16 left-6 sm:left-12 right-6 sm:right-12 max-w-2xl">
+                    <span class="inline-block px-3 py-1 mb-3 text-xs font-medium bg-sky-500/20 text-sky-300 border border-sky-400/30 rounded-full backdrop-blur-sm">
+                        Arctique • Expédition Polaire
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-white mb-2">Groenland</h2>
+                    <p class="text-sm sm:text-base text-slate-200 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                        Naviguez au cœur des fjords monumentaux bordés d'icebergs sculptés par le temps et observez la majesté silencieuse des terres boréales.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Diapositive 2 : Machu Picchu -->
+            <div class="slide-item slide-inactive absolute inset-0 w-full h-full" data-index="1">
+                <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=1600&q=85" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/1600x900/0f172a/34d399?text=Machu+Picchu+-+P%C3%A9rou';"
+                     alt="Ruines incas du Machu Picchu dans les montagnes des Andes" 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+                <div class="absolute bottom-14 sm:bottom-16 left-6 sm:left-12 right-6 sm:right-12 max-w-2xl">
+                    <span class="inline-block px-3 py-1 mb-3 text-xs font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full backdrop-blur-sm">
+                        Pérou • Cordillère des Andes
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-white mb-2">Machu Picchu</h2>
+                    <p class="text-sm sm:text-base text-slate-200 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                        Explorez la citadelle sacrée des Incas perchée dans les brumes andines, un chef-d'œuvre architectural suspendu entre ciel et sommets verdoyants.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Diapositive 3 : Montagnes de Chine -->
+            <div class="slide-item slide-inactive absolute inset-0 w-full h-full" data-index="2">
+                <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1600&q=85" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/1600x900/0f172a/fbbf24?text=Montagnes+de+Chine+-+Pics+Karstiques';"
+                     alt="Pics karstiques embrumés des montagnes de Chine" 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+                <div class="absolute bottom-14 sm:bottom-16 left-6 sm:left-12 right-6 sm:right-12 max-w-2xl">
+                    <span class="inline-block px-3 py-1 mb-3 text-xs font-medium bg-amber-500/20 text-amber-300 border border-amber-400/30 rounded-full backdrop-blur-sm">
+                        Asie • Formations Karstiques
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-white mb-2">Montagnes de Chine</h2>
+                    <p class="text-sm sm:text-base text-slate-200 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                        Contemplez les aiguilles de grès et les pics karstiques émergeant d'une mer de nuages, paysages intemporels ayant inspiré les plus grands peintres.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Diapositive 4 : Nouvelle-Zélande -->
+            <div class="slide-item slide-inactive absolute inset-0 w-full h-full" data-index="3">
+                <img src="https://images.unsplash.com/photo-1469521669194-babb45599def?auto=format&fit=crop&w=1600&q=85" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/1600x900/0f172a/a78bfa?text=Nouvelle-Z%C3%A9lande+-+Alpes+du+Sud';"
+                     alt="Paysage alpin et lac cristallin en Nouvelle-Zélande" 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+                <div class="absolute bottom-14 sm:bottom-16 left-6 sm:left-12 right-6 sm:right-12 max-w-2xl">
+                    <span class="inline-block px-3 py-1 mb-3 text-xs font-medium bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 rounded-full backdrop-blur-sm">
+                        Océanie • Alpes du Sud
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-white mb-2">Nouvelle-Zélande</h2>
+                    <p class="text-sm sm:text-base text-slate-200 leading-relaxed line-clamp-2 sm:line-clamp-none">
+                        Parcourez les vallées glaciaires et les lacs turquoise reflétant les sommets enneigés d'Aotearoa, terre d'aventure à l'état pur.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Indicateur d'état lecture / pause au survol -->
+        <div id="status-badge" class="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-full bg-slate-950/60 backdrop-blur-md border border-white/10 text-xs text-slate-300 flex items-center gap-2 transition-opacity duration-300">
+            <span id="status-dot" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="status-text">Défilement auto</span>
+        </div>
+
+        <!-- Bouton Précédent -->
+        <button id="prevBtn" 
+                aria-label="Destination précédente"
+                class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 p-3 sm:p-3.5 rounded-full bg-slate-950/50 hover:bg-slate-900/90 text-white border border-white/15 backdrop-blur-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+
+        <!-- Bouton Suivant -->
+        <button id="nextBtn" 
+                aria-label="Destination suivante"
+                class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 p-3 sm:p-3.5 rounded-full bg-slate-950/50 hover:bg-slate-900/90 text-white border border-white/15 backdrop-blur-md transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+
+        <!-- Points de navigation en bas -->
+        <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-950/50 backdrop-blur-md border border-white/10" role="tablist" aria-label="Choisir une destination">
+            <button class="dot-btn w-8 h-2.5 rounded-full bg-white transition-all duration-300" data-slide="0" aria-label="Aller à Groenland" aria-selected="true"></button>
+            <button class="dot-btn w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/75 transition-all duration-300" data-slide="1" aria-label="Aller à Machu Picchu" aria-selected="false"></button>
+            <button class="dot-btn w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/75 transition-all duration-300" data-slide="2" aria-label="Aller à Montagnes de Chine" aria-selected="false"></button>
+            <button class="dot-btn w-2.5 h-2.5 rounded-full bg-white/40 hover:bg-white/75 transition-all duration-300" data-slide="3" aria-label="Aller à Nouvelle-Zélande" aria-selected="false"></button>
+        </div>
+
+    </main>
+
+    <!-- Pied de page discret avec astuce d'utilisation -->
+    <footer class="w-full max-w-5xl mt-4 flex justify-between items-center text-xs text-slate-500">
+        <span>Survolez l'image pour mettre le défilement en pause</span>
+        <span id="slide-counter" class="font-medium text-slate-400">1 / 4</span>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sélection des éléments du DOM
+            const carouselContainer = document.getElementById('carousel-container');
+            const slides = document.querySelectorAll('.slide-item');
+            const dots = document.querySelectorAll('.dot-btn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const slideCounter = document.getElementById('slide-counter');
+            const statusDot = document.getElementById('status-dot');
+            const statusText = document.getElementById('status-text');
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            const autoPlayDelay = 5000; // 5 secondes
+            let autoPlayTimer = null;
+            let isPaused = false;
+
+            // Variables pour la gestion du balayage tactile (swipe sur mobile)
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            /**
+             * Met à jour l'affichage du carrousel pour l'index cible
+             * @param {number} index - L'index de la diapositive à afficher
+             */
+            function updateCarousel(index) {
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.remove('slide-inactive');
+                        slide.classList.add('slide-active');
+                    } else {
+                        slide.classList.remove('slide-active');
+                        slide.classList.add('slide-inactive');
+                    }
+                });
+
+                // Mise à jour visuelle des points de navigation
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.remove('w-2.5', 'bg-white/40');
+                        dot.classList.add('w-8', 'bg-white');
+                        dot.setAttribute('aria-selected', 'true');
+                    } else {
+                        dot.classList.remove('w-8', 'bg-white');
+                        dot.classList.add('w-2.5', 'bg-white/40');
+                        dot.setAttribute('aria-selected', 'false');
+                    }
+                });
+
+                // Mise à jour du compteur
+                slideCounter.textContent = `${index + 1} / ${totalSlides}`;
+            }
+
+            /**
+             * Passe à la diapositive suivante
+             */
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel(currentIndex);
+            }
+
+            /**
+             * Revient à la diapositive précédente
+             */
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel(currentIndex);
+            }
+
+            /**
+             * Démarre le défilement automatique toutes les 5 secondes
+             */
+            function startAutoPlay() {
+                stopAutoPlay();
+                if (!isPaused) {
+                    autoPlayTimer = setInterval(nextSlide, autoPlayDelay);
+                    statusDot.classList.remove('bg-amber-400');
+                    statusDot.classList.add('bg-emerald-400', 'animate-pulse');
+                    statusText.textContent = 'Défilement auto';
+                }
+            }
+
+            /**
+             * Arrête le minuteur de défilement automatique
+             */
+            function stopAutoPlay() {
+                if (autoPlayTimer) {
+                    clearInterval(autoPlayTimer);
+                    autoPlayTimer = null;
+                }
+            }
+
+            // Événements des boutons Précédent et Suivant
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                if (!isPaused) startAutoPlay();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                if (!isPaused) startAutoPlay();
+            });
+
+            // Événements sur les points de navigation
+            dots.forEach((dot) => {
+                dot.addEventListener('click', (e) => {
+                    const targetIndex = parseInt(e.currentTarget.getAttribute('data-slide'), 10);
+                    if (!isNaN(targetIndex)) {
+                        currentIndex = targetIndex;
+                        updateCarousel(currentIndex);
+                        if (!isPaused) startAutoPlay();
+                    }
+                });
+            });
+
+            // Pause au survol de la souris
+            carouselContainer.addEventListener('mouseenter', () => {
+                isPaused = true;
+                stopAutoPlay();
+                statusDot.classList.remove('bg-emerald-400', 'animate-pulse');
+                statusDot.classList.add('bg-amber-400');
+                statusText.textContent = 'En pause';
+            });
+
+            // Reprise lorsque la souris quitte le carrousel
+            carouselContainer.addEventListener('mouseleave', () => {
+                isPaused = false;
+                startAutoPlay();
+            });
+
+            // Navigation au clavier (flèches gauche et droite)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                    if (!isPaused) startAutoPlay();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                    if (!isPaused) startAutoPlay();
+                }
+            });
+
+            // Gestion des gestes tactiles (swipe) pour mobile et tablette
+            carouselContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                isPaused = true;
+                stopAutoPlay();
+            }, { passive: true });
+
+            carouselContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                isPaused = false;
+                startAutoPlay();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                if (touchEndX < touchStartX - swipeThreshold) {
+                    nextSlide();
+                } else if (touchEndX > touchStartX + swipeThreshold) {
+                    prevSlide();
+                }
+            }
+
+            // Initialisation au chargement
+            updateCarousel(currentIndex);
+            startAutoPlay();
+        });
+    </script>
+</body>
+</html>
